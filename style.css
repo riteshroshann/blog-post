@@ -1,0 +1,149 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #e0e0e0;
+    --accent-color: #00ff9d;
+    --secondary-text: #888;
+    --font-heading: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-heading);
+    margin: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    padding: 2rem 0;
+    border-bottom: 1px solid #222;
+    margin-bottom: 4rem;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #fff;
+}
+
+nav a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Post */
+.post-container {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1.glitch-text {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+}
+
+.meta {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.lead {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #222;
+    margin: 3rem 0;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    letter-spacing: -0.01em;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    color: #ccc;
+}
+
+.highlight {
+    color: var(--accent-color);
+    font-weight: 400;
+}
+
+strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+blockquote {
+    border-left: 2px solid var(--accent-color);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #fff;
+    font-family: serif;
+    font-size: 1.25rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 4rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid #222;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+}
+
+/* Selection */
+::selection {
+    background: var(--accent-color);
+    color: #000;
+}
