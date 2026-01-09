@@ -1,4 +1,4 @@
-/* World Labs Aesthetic Redesign */
+/* Simplification: Unified Single Column Layout */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 :root {
@@ -12,10 +12,8 @@
     --font-body: 'Inter', sans-serif;
 
     --container-width: 1200px;
-    --content-width: 720px;
-    /* Optimal reading width */
-    --wide-content-width: 1000px;
-    /* For images */
+    --content-width: 800px;
+    /* Consistently 800px for everything */
 }
 
 * {
@@ -49,6 +47,7 @@ header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 100;
+    border-bottom: 1px solid var(--border-color);
 }
 
 header .container {
@@ -210,7 +209,6 @@ nav a:hover {
 .article-header {
     max-width: var(--content-width);
     margin: 6rem auto 3rem auto;
-    /* More top margin */
     text-align: center;
     padding: 0 1rem;
 }
@@ -219,7 +217,6 @@ nav a:hover {
     font-family: var(--font-heading);
     font-size: 3.5rem;
     line-height: 1.15;
-    /* Sligthly looser */
     margin-bottom: 1.5rem;
     font-weight: 400;
     letter-spacing: -0.02em;
@@ -238,22 +235,20 @@ nav a:hover {
     max-width: var(--content-width);
     margin: 0 auto 6rem auto;
     font-family: 'Georgia', serif;
-    /* Explicit serif for body */
     color: #111;
     padding: 0 1rem;
 }
 
 .article-content p {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     line-height: 1.8;
-    /* cleaner breathing room */
     margin-bottom: 2rem;
     color: #222;
 }
 
 .article-content p.lead {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-style: italic;
     color: #444;
     line-height: 1.6;
@@ -280,45 +275,25 @@ nav a:hover {
     font-weight: 600;
 }
 
-/* Wide Figures */
-.wide-figure {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Standard Images */
+figure {
+    width: 100%;
+    margin: 3rem 0;
 }
 
+figure img,
 .wide-figure img {
-    max-width: 1000px;
-    /* Limits width on large screens */
     width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    /* Soft shadow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     display: block;
 }
 
-/* Ensure padding on smaller screens for wide figures */
-@media (max-width: 1040px) {
-    .wide-figure {
-        width: 100%;
-        left: 0;
-        right: 0;
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    .wide-figure img {
-        border-radius: 8px;
-    }
+/* Treat wide-figure same as standard figure now */
+.wide-figure {
+    width: 100%;
+    margin: 3rem 0;
 }
 
 figcaption {
@@ -331,8 +306,9 @@ figcaption {
 }
 
 .hero-image-container {
-    max-width: 1000px;
+    max-width: var(--content-width);
     margin: 0 auto 4rem auto;
+    padding: 0 1rem;
 }
 
 .hero-image-container img {
@@ -348,6 +324,7 @@ figcaption {
     background: #f9f9f9;
     padding: 2rem;
     border-radius: 8px;
+    margin-top: 4rem;
 }
 
 /* Footer */
