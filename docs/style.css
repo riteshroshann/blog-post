@@ -92,6 +92,23 @@ nav a:hover {
     color: #000;
 }
 
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.social-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform 0.2s;
+}
+
+.social-link:hover .social-icon {
+    transform: scale(1.1);
+}
+
 .cta-button {
     background: #1a1a1a;
     color: #fff;
