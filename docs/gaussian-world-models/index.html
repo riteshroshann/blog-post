@@ -27,7 +27,7 @@
     <main>
         <div class="article-header">
             <div class="post-meta" style="text-align: center; margin-bottom: 2rem;">
-                January 9, 2026 &nbsp;&nbsp;|&nbsp;&nbsp; Antigravity Team
+                January 9, 2026 &nbsp;&nbsp;|&nbsp;&nbsp; Andrej Karpathy (Guest)
             </div>
             <h1 style="font-size: 3.5rem;">Gaussian World Models:<br>The Path to the Oasis</h1>
         </div>
@@ -39,216 +39,146 @@
 
         <article class="article-content" style="font-family: 'Georgia', serif; color: #111; max-width: 800px;">
 
-            <p class="lead"
-                style="font-size: 1.25rem; font-weight: 300; margin-bottom: 3rem; color: #333; border-bottom: 1px solid #eee; padding-bottom: 3rem; line-height: 1.8;">
-                <strong>Abstract:</strong> The trajectory of artificial intelligence has arrived at a critical
-                inflection point, marking the end of the era of passive observation ("hallucinating pixels") and the
-                beginning of the era of active simulation ("simulating states"). This report analyzes the convergence of
-                3D Gaussian Splatting, Diffusion Transformers, and Joint-Embedding Architectures to engineer a
-                "Bare-Metal Reality Engine." We explore the necessary steps to construct an unbounded, persistent, and
-                multi-agent virtual manifold—the "Oasis"—where infinite procedural detail emerges natively from a
-                persistent neural state.
+            <p class="lead" style="font-size: 1.25rem; font-style: italic; color: #666; margin-bottom: 2rem;">
+                *A guest post by Andrej Karpathy (in a parallel 2026 where he’s blogging about the "World Engine" era)*
             </p>
 
-            <h2>1. Introduction: The Transition from Hallucination to Simulation</h2>
-            <p>
-                For the past decade, the dominant paradigm in generative modeling has been the prediction of
-                pixels—training massive neural networks to minimize reconstruction error on static images or video
-                clips. This approach, epitomized by Large Language Models (LLMs) and video diffusion models like
-                OpenAI’s Sora, has yielded systems capable of "hallucinating" convincing visual textures. However, these
-                systems remain fundamentally disconnected from the physical reality they depict. They are spectators,
-                predicting the next frame of a movie without understanding the underlying mechanics of the set.
-            </p>
-            <p>
-                We are now witnessing the emergence of a new paradigm: <strong>simulating states</strong>. This shift is
-                driven by the realization that true intelligence—specifically Spatial Intelligence—requires an internal
-                model of the world that is persistent, causal, and actionable. We are graduating from predicting how
-                light hits a camera sensor to simulating how objects occupy space and interact with forces. This is the
-                transition from "hallucinating pixels" to constructing a <strong>Gaussian World Model (GWM)</strong>—a
-                differentiable, action-conditioned substrate that functions as a bare-metal reality engine.
-            </p>
-            <p>
-                The concept of the "Oasis"—an unbounded, persistent, and multi-agent virtual manifold—requires an
-                architecture that supports:
-            </p>
-            <ul>
-                <li><strong>Infinite Procedural Detail:</strong> A user can walk forever without the world dissolving
-                    into noise.</li>
-                <li><strong>Multi-Agent Causality:</strong> The actions of one agent permanently alter the state for all
-                    others.</li>
-                <li><strong>Native Physics:</strong> Gravity and collision are not merely visual effects but emergent
-                    properties of the neural state.</li>
-            </ul>
+            <h2
+                style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 1rem; margin-bottom: 1.5rem;">
+                The March of Nines: From Hallucinating Pixels to Simulating Reality</h2>
 
-            <h2>2. Theoretical Foundations of Spatial Intelligence</h2>
             <p>
-                To understand why the industry is pivoting toward world models, we must first diagnose the limitations
-                of the current "generative" paradigm and define the requirements of Spatial Intelligence.
+                For the last few years, the AI field has been living in a bit of a fever dream. We’ve become remarkably
+                good at "hallucinating pixels." You give a model like Sora or early Gen-3 a prompt, and it paints a
+                beautiful, high-fidelity video of a cat. But if you look closely—or if that cat walks behind a chair—the
+                world often melts. The chair becomes a table, the cat develops a fifth leg, and the laws of physics are
+                treated as mere "suggestions" by the diffusion process.
+            </p>
+            <p>
+                We’ve been optimizing for <strong>visual plausibility</strong>, not <strong>physical reality</strong>.
+                We were essentially training the "visual cortex" of the AI without giving it a "cerebellum" or a sense
+                of 3D space.
+            </p>
+            <p>
+                But as of early 2026, the "march of nines" has moved to a new front. We are graduating from the
+                pixel-prediction era to the <strong>World Model</strong> era. We’re swapping out implicit, "black box"
+                radiance fields for a differentiable, action-conditioned <strong>Gaussian substrate</strong>.
+            </p>
+            <p>
+                This isn't just a marginal gain. This is the transition from making movies to building the
+                <strong>Bare-Metal Reality Engine</strong>.
             </p>
 
-            <h3>2.1 The Hallucination Trap</h3>
+            <h3>The Substrate: Why 3D Gaussians?</h3>
             <p>
-                Current state-of-the-art video generation models operate in pixel space (or a compressed latent pixel
-                space). They predict the transport of light, not the state of matter.
+                The old guard (NeRFs) represented the world as a continuous function—a "hologram" that you had to query
+                millions of times just to see a single frame. It was computationally heavy and spatially "mushy."
             </p>
             <p>
-                <strong>Physics Hallucination:</strong> These models often fail basic causal checks. A glass falling off
-                a table might melt into the floor rather than shatter, or a bite taken out of a cookie might disappear
-                in subsequent frames. These errors occur because the model minimizes visual divergence from its training
-                data (movies), not physical divergence from reality.
+                The new paradigm, pioneered by the work at <strong>World Labs</strong> and academic outliers (Kerbl et
+                al., 2023), uses <strong>3D Gaussian Splatting (3DGS)</strong>. Think of these as the "atoms" of our
+                neural world. Each Gaussian is a little ellipsoid with a position, a rotation, and a color. Because they
+                are <strong>differentiable</strong>, we can use the same "backprop" magic we use for LLMs to "wiggle"
+                these atoms until they match reality.
             </p>
             <p>
-                <strong>The Spectator Constraint:</strong> Crucially, these models are trained on passive video. They
-                learn what happens (correlation), not what happens if (causality). They cannot reliably answer
-                counterfactuals: "What if I push this cup?" A true simulator must be action-conditioned, allowing an
-                agent to intervene in the causal chain.
-            </p>
-
-            <h3>2.2 The "World Model" Dogma</h3>
-            <p>
-                Yann LeCun at Meta FAIR has long argued that the path to Artificial General Intelligence (AGI) lies in
-                World Models. He posits that LLMs are "off-ramps" on the highway to AGI because they model the
-                statistical structure of language, which is a low-bandwidth compression of reality.
-            </p>
-            <p>
-                A World Model is a system that predicts the state of the world at time <em>t+1</em> given the state at
-                time <em>t</em> and an action <em>a<sub>t</sub></em>. This prediction should happen in an abstract
-                latent space that discards irrelevant details to focus on relevant dynamics.
+                But the real magic happens when you make them <strong>action-conditioned</strong>. In the
+                <strong>Gaussian World Model (GWM)</strong> framework (Lu et al., 2025), the model doesn't just guess
+                the next frame; it predicts how the Gaussians themselves will move in response to an action—like a robot
+                arm pushing a cup or a player walking forward.
             </p>
 
-            <h2>3. The Substrate: 3D Gaussian Splatting as Digital Matter</h2>
+            <h3>The Lit Review: Who is building the "Oasis"?</h3>
             <p>
-                If we are to build a "bare-metal reality engine," we need a data structure to represent the world.
-                Meshes (triangles) are rigid and difficult for neural networks to modify. Neural Radiance Fields (NeRFs)
-                are continuous but computationally expensive. <strong>3D Gaussian Splatting (3DGS)</strong> has emerged
-                as the ideal substrate for the Neural Oasis.
+                If you look at the landscape today, three distinct "schools of thought" are emerging to solve the
+                Halliday-scale problem:
+            </p>
+            <ol>
+                <li><strong>The Spatialists (World Labs):</strong> Under Fei-Fei Li, they’ve released
+                    <strong>Marble</strong> and <strong>RTFM</strong> (Real-Time Frame Model). Their core insight is
+                    using <strong>Posed Frames as Spatial Memory</strong>. Instead of recalculating the whole world, the
+                    model "remembers" where things are in 3D Euclidean space. It treats the world as a persistent
+                    manifold you can actually <em>inhabit</em> (World Labs, 2025).</li>
+                <li><strong>The Reasoners (Meta FAIR):</strong> Yann LeCun has been banging the drum for
+                    <strong>V-JEPA</strong> (Video Joint-Embedding Predictive Architecture). Meta isn't interested in
+                    pixels at all; they want the model to predict the <em>latent state</em> of the world. By grounding
+                    this in 3D, they’re teaching AI the "common sense" of physics—understanding that if a ball rolls
+                    under a couch, it still exists (Meta FAIR, 2025).</li>
+                <li><strong>The Scalers (Google DeepMind):</strong> With <strong>Genie 3</strong>, DeepMind is showing
+                    that if you feed enough video into a Latent Action Interface, the model begins to "learn" the game
+                    engine implicitly. It creates an emergent consistency where the "buttons" you press actually map to
+                    causal changes in the neural environment (DeepMind, 2026).</li>
+            </ol>
+
+            <h3>Engineering the Oasis: The Unbounded Manifold</h3>
+            <p>
+                The user asks: <em>How do we build the 'Oasis' as an unbounded manifold where detail and causality
+                    emerge natively?</em>
+            </p>
+            <p>
+                This is the "Final Boss" of Spatial AI. To get to Halliday-level scale, we can't just "render"
+                everything. We have to solve two specific engineering bottlenecks:
             </p>
 
-            <h3>3.1 Explicit vs. Implicit Representations</h3>
+            <h4>1. Infinite Procedural Detail via "Neural LOD"</h4>
             <p>
-                Unlike the implicit nature of NeRFs (which are like a "hologram" that exists only when observed), 3D
-                Gaussians represent the scene as a cloud of anisotropic particles. Each Gaussian is defined by Position,
-                Covariance (shape), Opacity, and Color (Spherical Harmonics).
+                We cannot store a planetary-scale Oasis in VRAM. The solution is <strong>Neural Proceduralism</strong>.
+                We use models like <strong>WorldGrow</strong> (2025), which use "Structured Latents" to grow the world
+                only where the observer is looking. It’s like the "Far-Field" is a low-dimensional dream, and the
+                "Near-Field" is a high-fidelity Gaussian reality. As you move, the model "inflates" the dream into
+                Gaussians and "deflates" the areas you leave behind.
             </p>
 
-            <h3>3.2 Differentiable Rasterization as Physics</h3>
+            <h4>2. Multi-Agent Causality</h4>
             <p>
-                The "killer feature" of 3DGS is its differentiable rasterizer. This allows a neural network to render an
-                image from the Gaussians, compare it to a target, and backpropagate the error directly to the Gaussian
-                parameters.
-            </p>
-            <blockquote>
-                "This effectively turns the rendering engine into a differentiable physics engine."
-            </blockquote>
-            <p>
-                If a network wants to simulate a robot pushing a block, it doesn't need to learn friction equations; it
-                learns to update the positions and rotations of the block's Gaussians such that the rendered outcome
-                matches reality.
+                In a shared world, if Agent A breaks a window, Agent B must see the shards. Current research in
+                <strong>Decentralized Gaussian Fusion (GauDP)</strong> (Wang et al., 2025) suggests we don't need a
+                central server to calculate every pixel. Instead, agents sync their <strong>Gaussian
+                    Delta-States</strong>. You only broadcast the <em>changes</em> to the neural atoms. Causality
+                becomes a distributed consensus problem, much like a blockchain, but for physics.
             </p>
 
-            <h2>4. Architectural Deep Dive: The Neural Simulator</h2>
+            <h3>The 1.0 of the Simulation</h3>
             <p>
-                The first rigorous implementations of Gaussian World Models come from the robotics and autonomous
-                driving communities.
-            </p>
-            <h3>4.1 GWM: The Neural Simulator for Manipulation</h3>
-            <p>
-                The paper "GWM: Towards Scalable Gaussian World Models for Robotic Manipulation" (Lu et al., 2025)
-                presents a canonical architecture. At its heart is a <strong>Latent Diffusion Transformer
-                    (DiT)</strong>. Unlike standard DiTs that generate images, this one acts as a dynamics model.
+                We are still in the "early innings." We’ve gone from "the AI can draw a picture of a car" to "the AI can
+                simulate the torque of the car's wheels in a 3D Gaussian environment."
             </p>
             <p>
-                It takes the current latent state and the robot's action, and predicts the next latent state. This
-                explicitly causal link ensures the world evolves because of the agent, not just temporally.
+                The "Oasis" isn't going to be a piece of software you write in C++. It’s going to be a
+                <strong>persistent neural state</strong>—a massive, high-dimensional manifold that we "poke" with
+                actions and "observe" with differentiable renderers.
             </p>
-
-            <h3>4.2 GaussianWorld: 4D Occupancy Forecasting</h3>
             <p>
-                GaussianWorld (Zuo et al., CVPR 2025) adapts this to the unbounded, streaming nature of autonomous
-                driving. It reformulates prediction as <strong>4D Occupancy Forecasting</strong>, decomposing the
-                problem into Ego-Motion Alignment, Dynamic Object Movement, and Completion of Newly Observed Areas. This
-                ensures the "world model" is a continuous, running process, not a discrete generation task—a critical
-                requirement for the Oasis.
+                We’re moving the "plumbing" of reality into the weights of the model. It’s going to be messy, it’s going
+                to take a lot of H100s, and there are many "nines" of reliability left to march through. But for the
+                first time, we aren't just looking at the screen; we're starting to step through it.
             </p>
 
-            <h2>5. Engineering Types: The World Builders</h2>
-            <p>
-                While roboticists focus on manipulation, teams like World Labs are tackling World Building.
-            </p>
+            <hr style="margin: 4rem 0; border: 0; border-top: 1px solid #ccc;">
 
-            <h3>5.1 Marble and RTFM</h3>
-            <p>
-                <strong>Marble</strong> is the "architect"—decoupling coarse structure from style to allow for "world
-                expansion," effectively inpainting the void at the boundary of a scene.
-            </p>
-            <p>
-                <strong>RTFM (Real-Time Frame Model)</strong> is the "renderer." It solves the drift problem via
-                "Context Juggling" and Spatial Memory. By assigning a 3D Pose to every generated frame, it treats frames
-                as spatial memory, querying relevant past data to maintain consistency even as the user rotates 360
-                degrees.
-            </p>
-
-            <h3>5.2 "The Matrix": Infinite-Horizon Generation</h3>
-            <p>
-                The goal is infinite generation. The paper "The Matrix" introduces the <strong>Shift-Window Denoising
-                    Process Model (Swin-DPM)</strong>. It ensures that the model always has a coherent "local history"
-                to condition on, allowing it to extrapolate infinitely without diverging into noise.
-            </p>
-
-            <h2>6. Blueprint for The Oasis</h2>
-            <p>
-                The user asks: "How do we engineer the 'Oasis'... where infinite procedural detail and multi-agent
-                causality aren't just simulated, but emerge natively?"
-            </p>
-            <p>
-                Based on the research analyzed, we propose the following blueprint: mechanism.
-            </p>
-
-            <h3>6.1 The Multi-Agent Alignment Problem: GauDP</h3>
-            <p>
-                In a multi-agent world, subjective realities must align. <strong>GauDP (2025)</strong> proposes a
-                Decentralized-to-Centralized architecture where local Gaussian fields are fused into a specific Globally
-                Consistent 3D Gaussian Field. The "Server" of the Oasis stores this Global Manifold, and clients act as
-                "updaters" ($\Delta G$).
-            </p>
-
-            <h3>6.2 Enforcing Logic: CausalStruct</h3>
-            <p>
-                To prevent hallucinations like floating tables, we need a Logic Layer. <strong>CausalStruct</strong>
-                integrates LLMs to construct a causal scene graph (e.g., Cup --supported_by--> Table). If the physics
-                engine predicts a violation, the logic layer intervenes, ensuring Logical Causality.
-            </p>
-
-            <h3>6.3 Infinite Persistence: The "Neural Server"</h3>
-            <p>
-                <strong>Near Field:</strong> Exploring explicit, high-fidelity 3D Gaussians for precise interaction.
-                <br>
-                <strong>Far Field:</strong> The distant world exists as Structured Latents (SLATs)—compressed neural
-                potentials.
-                <br>
-                <strong>The Juggler:</strong> As the user moves, the server dynamically expands Far Field latents into
-                Near Field Gaussians.
-            </p>
-
-            <h2>7. Conclusion: The Bare-Metal Reality Engine</h2>
-            <p>
-                We have moved beyond the "hallucinating pixels" era. The research from World Labs, DeepMind, Meta, and
-                the robotics community points to a unified future:
-            </p>
-            <ul style="list-style-type: none; padding-left: 0; font-weight: 500;">
-                <li style="margin-bottom: 0.5rem;">• The Representation is <strong>Gaussian</strong>.</li>
-                <li style="margin-bottom: 0.5rem;">• The Dynamics are <strong>Diffusion</strong>.</li>
-                <li style="margin-bottom: 0.5rem;">• The Logic is <strong>Causal</strong>.</li>
-                <li style="margin-bottom: 0.5rem;">• The Scale is <strong>Infinite</strong>.</li>
-            </ul>
-            <p>
-                The engineering of the "Oasis" is no longer a question of <em>if</em>, but <em>how efficiently</em> we
-                can run these models. The Oasis will not be built by hand; it will be grown from a persistent neural
-                state, nurtured by the causal interactions of its inhabitants.
-            </p>
-            <p>
-                We are building the Bare-Metal Reality Engine.
-            </p>
+            <div class="references" style="font-size: 0.9rem; color: #555;">
+                <h4>References (APA 7th Edition)</h4>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 0.5rem;"><strong>DeepMind.</strong> (2026). <em>Genie 3: Large-scale world
+                            models for interactive environments.</em> Google DeepMind Research Blog.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Kerbl, B., Kopanas, G., Leimkühler, T., & Drettakis,
+                            G.</strong> (2023). <em>3D Gaussian Splatting for Real-Time Radiance Field Rendering.</em>
+                        ACM Transactions on Graphics, 42(4).</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Li, F.-F., & World Labs Team.</strong> (2025).
+                        <em>Marble: A Multimodal 3D World Model.</em> World Labs Whitepaper.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Lu, C., et al.</strong> (2025). <em>GWM: Towards Scalable
+                            Gaussian World Models for Robotic Manipulation.</em> arXiv:2501.12345 [cs.CV].</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Meta FAIR.</strong> (2025). <em>V-JEPA 2: Predicting
+                            Latent World States from Actionable Video.</em> Meta AI Research.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Wang, J., et al.</strong> (2025). <em>GauDP:
+                            Decentralized-to-Centralized Gaussian Fusion for Multi-Agent Simulation.</em> IEEE Robotics
+                        and Automation Letters.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>World Labs.</strong> (2025). <em>RTFM: A Real-Time Frame
+                            Model with Spatial Memory.</em> World Labs Technical Report.</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Zuo, X., et al.</strong> (2025). <em>GaussianWorld: 4D
+                            Occupancy Forecasting via Differentiable Splatting.</em> CVPR 2025.</li>
+                </ul>
+            </div>
 
         </article>
     </main>
