@@ -99,8 +99,8 @@ nav a:hover {
 }
 
 .social-icon {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     fill: currentColor;
     transition: transform 0.2s;
 }
