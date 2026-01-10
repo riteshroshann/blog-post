@@ -44,8 +44,8 @@
           Expect deep dives into papers, reviews of obscure literature, occasional poems, and raw updates on the engines I am building. This is the synthesis of everything I am learning—unfiltered and constantly evolving.
         </p>
         <br>
-        <p align="center">
-          <a href="https://riteshroshann.github.io/blog-post/" style="color: #88ccff; font-style: italic;">Explore archives at riteshroshann.github.io/blog-post →</a>
+        <p align="center" style="font-family: 'Charter', 'Georgia', serif; font-size: 1.5em; line-height: 1.6;">
+          <a href="https://riteshroshann.github.io/blog-post/" style="color: #f0f0f0; font-style: italic; text-decoration: underline;">Explore archives at riteshroshann.github.io/blog-post →</a>
         </p>
       </div>
     </td>
@@ -59,4 +59,5 @@
 </a>
 
 </div>
+
 
