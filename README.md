@@ -1,38 +1,50 @@
 <div align="center">
 
-<h1 style="font-family: serif; font-weight: 500; font-size: 3em; border-bottom: none; margin-bottom: 10px;">Building the Future.</h1>
-
-<img src="https://github.com/user-attachments/assets/ad268589-2f80-43ea-a945-e9d469ff9beb" 
-     alt="Neo vs. Morpheus in dojo in Matrix Resurrection" 
-     width="100%" 
-     style="border-radius: 12px; margin-top: 20px;">
-
-<p style="font-family: serif; font-style: italic; color: #555; margin-top: 8px;">
-  Neo vs. Morpheus in dojo in Matrix Resurrection
-</p>
+<img src="https://readme-typing-svg.demolab.com?font=Playfair+Display&weight=500&size=45&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&height=100&lines=Building+the+Future." alt="Building the Future." />
 
 <br>
 
-<div style="font-family: 'Georgia', 'Times New Roman', serif; max-width: 850px; text-align: left; line-height: 1.6;">
+<img src="https://github.com/user-attachments/assets/ad268589-2f80-43ea-a945-e9d469ff9beb" 
+     alt="Neo vs. Morpheus in dojo in Matrix Resurrection" 
+     width="95%" 
+     style="border-radius: 12px; margin-top: 20px;">
 
-  <p align="center" style="font-size: 1.25em; font-style: italic; color: #333; margin-bottom: 30px;">
-    Hi, I'm Ritesh Roshan Sahoo. I am a student and this is a digital garden for <br> my curious thoughts—a place where research meets reverie.
-  </p>
+<p align="center">
+  <i><font color="#888">Neo vs. Morpheus in dojo in Matrix Resurrection</font></i>
+</p>
 
-  <p style="font-size: 1.1em; margin-bottom: 20px;">
-    I am obsessed with the convergence of graphics, intelligence, and the untold stories hidden in technical appendices. Here, I document my journey exploring large world models, spatial intelligence, crypto, quantum computing, AI, and competitive programming.
-  </p>
+<br><br>
 
-  <p style="font-size: 1.1em; margin-bottom: 20px;">
-    But this space is not just for code and equations. It is for the random book that changed my perspective, the research paper that felt like poetry, and the creative experiments that didn't make it into a commit message.
-  </p>
+<table width="800px" border="0">
+  <tr>
+    <td align="center">
+      <p style="font-size: 1.3em;">
+        <i>Hi, I'm Ritesh Roshan Sahoo. I am a student and this is a digital garden for <br> my curious thoughts—a place where research meets reverie.</i>
+      </p>
+    </td>
+  </tr>
+</table>
 
-  <p style="font-size: 1.1em; margin-bottom: 40px;">
-    Expect deep dives into papers, reviews of obscure literature, occasional poems, and raw updates on the engines I am building. This is the synthesis of everything I am learning—unfiltered and constantly evolving.
-  </p>
+<br>
 
-</div>
+<table width="750px" border="0">
+  <tr>
+    <td align="left">
+      <p>
+        I am obsessed with the convergence of graphics, intelligence, and the untold stories hidden in technical appendices. Here, I document my journey exploring <b>large world models, spatial intelligence, crypto, quantum computing, AI, and competitive programming.</b>
+      </p>
+      <p>
+        But this space is not just for code and equations. It is for the random book that changed my perspective, the research paper that felt like poetry, and the creative experiments that didn't make it into a commit message.
+      </p>
+      <p>
+        Expect deep dives into papers, reviews of obscure literature, occasional poems, and raw updates on the engines I am building. This is the synthesis of everything I am learning—unfiltered and constantly evolving.
+      </p>
+    </td>
+  </tr>
+</table>
 
-<hr style="width: 30%; border: 0.5px solid #eee; margin: 40px 0;">
+<br><br>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/aqua.png" width="100%">
 
 </div>
