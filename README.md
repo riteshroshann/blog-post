@@ -4,11 +4,6 @@
   <img src="https://readme-typing-svg.demolab.com?font=Playfair+Display&weight=500&size=45&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&height=100&lines=Building+the+Future." alt="Building the Future." />
 </a>
 
-<p style="font-family: serif; font-size: 1.2em; letter-spacing: 2px; margin-top: -10px;">
-  <a href="https://riteshroshann.github.io/blog-post/" style="text-decoration: none; color: #fff;">
-    <b>[ ENTER THE DIGITAL GARDEN ]</b>
-  </a>
-</p>
 
 <a href="https://riteshroshann.github.io/blog-post/">
   <img src="https://github.com/user-attachments/assets/ad268589-2f80-43ea-a945-e9d469ff9beb" 
@@ -27,7 +22,7 @@
   <tr>
     <td align="center">
       <p style="font-family: 'Charter', 'Georgia', serif; font-size: 1.5em; line-height: 1.6; color: #f0f0f0;">
-        <i>Hi, I'm Ritesh Roshan Sahoo. I am a student and this is a <a href="https://riteshroshann.github.io/blog-post/" style="color: #f0f0f0; text-decoration: underline;">digital garden</a> for <br> my curious thoughts—a place where research meets reverie.</i>
+        <i>Hi, I'm Ritesh Roshan Sahoo. I am a student and this is a digital garden for <br> my curious thoughts—a place where research meets reverie.</i>
       </p>
     </td>
   </tr>
@@ -64,3 +59,4 @@
 </a>
 
 </div>
+
