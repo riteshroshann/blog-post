@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -56,130 +56,211 @@
 
         <article class="article-content">
             <p class="lead">
-    We've seen this pattern before. ENIAC filled a room. Smartphones fit in a pocket. Then we built planet-scale data centers. Now we're shrinking again. Is this cycle fundamental to how technology evolves, or are we missing something deeper about the nature of computation itself?
+    The history of artificial intelligence, particularly in the deep learning era, has been written in the language of excess. Since the AlexNet breakthrough, the dominant heuristic for progress has been the unyielding application of scale: larger datasets, deeper architectures, and, crucially, exponentially greater power consumption. This trajectory, often conceptualized as "Software 2.0" by researchers like Andrej Karpathy, posits that the optimization of neural weights via gradient descent creates a form of software superior to human-written code. However, as we navigate through 2025 and look toward 2026, this paradigm faces a formidable adversary: the laws of thermodynamics.
+</p>
+<p>
+    The "scaling laws" that birthed GPT-4 are colliding with the "Hardware Lottery"—a term coined by Sara Hooker to describe how research directions are constrained by the available hardware substrate. The prevailing hardware lottery ticket has been the GPU, a device originally designed for rendering pixels, which serendipitously proved adept at the dense matrix multiplications required for Transformers. Yet, this ticket comes at a steep price: massive energy consumption and a centralized architecture that tethers intelligence to the cloud.
+</p>
+<p>
+    The central engineering challenge of our time is no longer just "can we build it?" but "can we shrink it?" Can we decouple intelligence from the gigawatt-scale data center and embed it into the milliwatt-scale edge? This report explores the radical re-architecture of intelligence required to optimize for the edge. It is a journey that takes us from the 700-watt NVIDIA H100 to the 20-watt human brain, and from 32-bit floating-point precision to the austere efficiency of the 1-bit Large Language Model (LLM).
+</p>
+<p>
+    By drawing parallels to the recursive simulations of <em>The Matrix Resurrections</em>, the imitation games of Alan Turing, and the evolutionary algorithms of Sakana AI, we uncover a profound truth: <strong>compression is not just about saving space; it is about distilling the essence of reality.</strong>
 </p>
 
+<h2>1. The Thermodynamic Cost of Intelligence</h2>
+<h3>1.1 The Landauer Limit vs. The H100</h3>
 <p>
-    The AI scaling race feels eerily familiar to anyone who remembers the megahertz wars of the 1990s. Bigger, faster, more—until physics said no. Then we pivoted: multi-core, parallelism, specialization. <strong>Are we approaching a similar inflection point with neural networks?</strong> Or is this cycle itself a red herring—a distraction from the real question: <em>What is the fundamental unit of intelligence?</em>
+    To understand the magnitude of the optimization challenge, one must quantify the energetic chasm between biological and artificial intelligence. The human brain, the only existing proof of general intelligence, operates on a power budget of approximately 20 watts. Within this modest envelope, it performs an estimated ^{14}$ to ^{16}$ synaptic operations per second. In contrast, a single NVIDIA H100 GPU can consume upwards of 700 watts, and when clustered into the supercomputers required for training frontier models, the energy consumption rivals that of small municipalities.
+</p>
+<p>
+    This disparity is rooted in the physics of information. Rolf Landauer demonstrated in 1961 that the erasure of information is a thermodynamically irreversible process, dissipating a minimum amount of heat defined as  \ge k_B T \ln 2$. While biological neurons operate astonishingly close to this physical limit—optimizing for survival in a resource-scarce environment—modern silicon architectures are orders of magnitude less efficient. The culprit is the <strong>Von Neumann bottleneck</strong>: moving data between DRAM and the compute core costs significantly more energy than the computation itself. For edge AI, this "memory wall" is an existential barrier.
 </p>
 
-<h2>1. The Tyranny of the Cycle: Big → Small → Big → ?</h2>
+<h3>1.2 The Hardware Lottery and the Shift to the Edge</h3>
 <p>
-    In 1946, ENIAC weighed 30 tons. By 1981, the IBM PC sat on a desk. By 2010, AWS was building warehouse-scale computers. Now in 2026, we're trying to run LLMs on hearing aids.
+    Sara Hookers "Hardware Lottery" hypothesis suggests that the dominance of certain algorithms is determined not by their theoretical superiority, but by their compatibility with winning hardware. The victory of the Transformer architecture was secured because it mapped perfectly onto the dense matrix multiplication capabilities of the GPU. However, the edge represents a different lottery with different winning numbers. Here, the constraints are latency, thermal dissipation, and battery life.
 </p>
 <p>
-    This isn't just history repeating—it's a <strong>dialectic driven by economics and physics</strong>. Centralization wins when:
+    As we transition from the cloud to the edge, we are witnessing the emergence of "Hardware-Aware Software 2.0." This is not just about training a model and compressing it; it is about co-designing the topology of the neural network with the topology of the silicon. It is about acknowledging that the "resolution" of our digital thoughts must be tuned to the granularity of the physical world they inhabit.
 </p>
+
+<h2>2. The Art of Approximation: Quantization and the 1-Bit Revolution</h2>
+<p>
+    If the brain teaches us anything, it is that high precision is not a prerequisite for high functioning. Biological synapses are noisy, analog, and imprecise, yet they support consciousness. In the realm of neural networks, we have long relied on 32-bit floating-point numbers (FP32) as the gold standard. However, the push for edge optimization has revealed that this precision is vastly over-provisioned for inference.
+</p>
+
+<h3>2.1 The Ternary Paradigm: BitNet b1.58</h3>
+<p>
+    The most radical challenge to the FP16 orthodoxy comes from Microsoft Research with <strong>BitNet b1.58</strong>. This architecture proposes a shift to 1-bit Large Language Models, where every parameter in the linear layers is constrained to one of three values: $\{-1, 0, 1\}$.
+</p>
+<p>
+    The term "1.58 bits" is derived from the information content of a ternary system ($\log_2 3 \approx 1.58$ bits). The implications are profound. In a standard matrix multiplication, the primary cost comes from multiplying floating-point numbers. With weights restricted to $\{-1, 0, 1\}$, expensive multiplication is replaced by simple addition and subtraction.
+</p>
+<p>
+    This is not merely compression; it is a new scaling law. BitNet suggests that the "nuance" we attribute to high-precision weights may be an artifact of our training methods. The structure of the network carries the burden of intelligence, while individual weights need only indicate direction.
+</p>
+
+<h3>2.2 Apples Mixed-Precision Palettization</h3>
+<p>
+    While Microsoft explores theoretical limits, Apples research for on-device intelligence represents a pragmatic, product-focused approach. Deploying a ~3 billion parameter model on an iPhone requires navigating strictly limited DRAM bandwidth.
+</p>
+<p>
+    Apple utilizes <strong>palettization</strong>, akin to k-means clustering for weights. Instead of storing every weight as a unique value, weights are clustered into a small set of representative values. Furthermore, they employ <strong>mixed precision</strong>: critical layers like embeddings are kept at high resolution, while the bulk of transformer blocks are aggressively quantized. This mirrors "activation-aware" strategies where salient weights are protected to preserve model accuracy.
+</p>
+
+<h2>3. Architectural Alchemy: Deep, Thin, and Distilled</h2>
+<h3>3.1 MobileLLM: Depth over Width</h3>
+<p>
+    Metas MobileLLM research challenges sub-billion parameter scaling laws. Their findings indicate that for models in the 125M to 1B range, <strong>depth is more critical than width</strong>. A deeper network can model more complex compositional functions and reasoning chains.
+</p>
+<p>
+    The logic is rooted in the memory wall. By making the model "thin" (smaller embedding dimension) but "deep," activation states remain small enough to potentially reside in the processors cache, minimizing expensive DRAM fetches. This mimics the recursive processing seen in human cognition—re-visiting the same information through the same processing loop to extract deeper meaning.
+</p>
+
+<h3>3.2 Knowledge Distillation: The Socratic Method for Silicon</h3>
+<p>
+    Training a small model from scratch is rarely as effective as distilling it from a larger "teacher" model. Knowledge Distillation (KD) involves a compact "Student" model mimicking a massive "Teacher" model (e.g., Llama-3-70B). The student learns from the teacher's "soft targets"—the probability distribution over all possible answers, capturing the "dark knowledge" of structural relationships between concepts.
+</p>
+<p>
+    Google DeepMinds research into <strong>feature-based distillation</strong> aligns with insights from Andrej Karpathy regarding Reinforcement Learning from Verifiable Rewards (RLVR). By training students on the "reasoning traces" of larger models, we distill reasoning capabilities into edge-compatible footprints.
+</p>
+
+<h2>4. Evolutionary Intelligence: The Sakana Approach</h2>
+<p>
+    Most architectural optimization relies on human intuition or expensive Neural Architecture Search. However, <strong>Sakana AI</strong> has introduced a radical alternative inspired by biological evolution: <strong>Evolutionary Model Merge</strong>.
+</p>
+<p>
+    Sakanas approach treats the repository of open-source models as a genetic pool. They "breed" existing models using evolutionary algorithms to create new hybrids. This method operates in data flow space (wiring layers) and parameter space (mixing weights).
+</p>
+<p>
+    This is a direct subversion of the Hardware Lottery. Instead of fighting training compute constraints, Sakana leverages the "sunk cost" of existing pre-trained models. The resulting models demonstrate emergent capabilities without the massive energy expenditure of training from scratch. This suggests a future where edge models evolve in real-time, adapting to their local environments.
+</p>
+
+<h2>5. The Edge Defense: Scale AI, Donovan, and the "Modal" of War</h2>
+<p>
+    The theoretical optimizations of quantization facing their harshest test in national defense. Here, the "edge" is a disconnected drone swarm or an air-gapped network. <strong>Scale AIs Donovan</strong> platform represents the operationalization of LLMs for these high-stakes environments.
+</p>
+<p>
+    The critical innovation here parallels the concept of the <strong>"Modal" from <em>The Matrix Resurrections</em></strong>. In the film, Neo creates a "modal"—a secure, looped simulation—to evolve an agent (Morpheus) capable of breaking him out. Similarly, Donovan allows for the creation of mission-specific AI agents within a secure sandbox. Operators can fine-tune generative models, test them against adversarial attacks ("Red Teaming"), and deploy these "distilled" agents to the tactical edge.
+</p>
+<p>
+    At the tactical edge, a drone cannot query OpenAIs API. It must run a robust, quantized model tailored to its survival. The Hardware Lottery here is literal: the survival of the hardware determines the survival of the intelligence.
+</p>
+
+<h2>6. Swarm Intelligence: The Borg, The Beehive, and Gossip</h2>
+<p>
+    When we shrink the neural net to fit on a single device, we lose capacity. To regain "Super-Turing" capability, we must move from individual to <strong>Collective Intelligence</strong>.
+</p>
+<p>
+    A robust, biologically inspired alternative to Federated Learning is <strong>Gossip Learning</strong>. In this paradigm, devices communicate directly with neighbors via peer-to-peer protocols, mimicking how bees share information or birds flock. It is scalable, robust to node failures, and eliminates central bottlenecks.
+</p>
+<p>
+    The vision is a <strong>Bio-Cognitive Mesh</strong>. Heterogeneous devices form ad-hoc swarms. Through sharded model parallelism, a swarm could host a model larger than any single device could carry—a distributed, flying supercomputer. The ultimate edge optimization is not making the model smaller, but making the computer larger by turning the environment itself into a compute fabric.
+</p>
+
+<h2>7. Hardware Substrates: Breaking the Von Neumann Chains</h2>
+<h3>7.1 IBM NorthPole: Memory is Compute</h3>
+<p>
+    IBMs NorthPole architecture represents a decisive break from the Von Neumann bottleneck. It is a "neural inference accelerator" where memory and compute are intertwined. With no off-chip memory, all weights must fit on the chip's internal SRAM, yielding staggering energy efficiency.
+</p>
+
+<h3>7.2 Neuromorphic and Event-Driven Computing</h3>
+<p>
+    Moving further toward biological realism, <strong>Neuromorphic Computing</strong> (like Intels Loihi 2) utilizes asynchronous, event-driven logic. Standard processors march to a global clock; the brain processes information only when an event (a spike) occurs. This offers sub-millisecond latency, critical for reflex-based agents.
+</p>
+
+<h2>8. Philosophical Implications: The Imitation Game in Low Resolution</h2>
+<h3>8.1 The Imitation Game Revisited</h3>
+<p>
+    Alan Turings original <strong>"Imitation Game"</strong> was a test of indistinguishability. If a compressed, 1.58-bit model produces text indistinguishable from a 16-bit model, does the loss of precision matter? This supports a functionalist view of mind: intelligence is substrate-independent. Just as a low-resolution JPEG of a face is still a face, a low-precision thought is still a thought.
+</p>
+
+<h3>8.2 The Matrix and the Simulation Hypothesis</h3>
+<p>
+    Nick Bostroms Simulation Hypothesis argues that a simulator would need to optimize resources, likely using "lazy loading" and "quantization." Our efforts to optimize AI—using attention mechanisms and quantization—look suspiciously like we are re-inventing the physics of our own universe.
+</p>
+<p>
+    <strong>The Modal Paradox:</strong> In <em>The Matrix Resurrections</em>, Neo creates a modal to evolve a better Morpheus. This recursive creation mirrors our use of synthetic data and RLVR. We are building "modals" to train AI agents because the "real world" is too noisy. We are becoming the Architects.
+</p>
+
+<h2>9. Future Feasibility: Karpathys Vision & Curious Questions</h2>
+<p>
+    Looking to the "2025 LLM Year in Review" perspective attributed to Andrej Karpathy, the shift from "vibes-based" evaluation to <strong>Reinforcement Learning from Verifiable Rewards (RLVR)</strong> is the key enabler for edge AI. Small models cannot store the internet, so they must trade knowledge for reasoning. By teaching small models <em>how to think</em> (System 2 thinking) rather than just what to know, we substitute compute time for parameter count.
+</p>
+
+<h3>Curious Questions for the Researcher</h3>
 <ul>
-    <li><strong>Economies of scale dominate:</strong> Shared infrastructure amortizes fixed costs (cloud computing, model training).</li>
-    <li><strong>Network effects matter:</strong> Value increases with interconnection (social platforms, federated learning).</li>
-    <li><strong>Coordination is hard:</strong> Centralized control simplifies deployment and updates.</li>
+    <li><strong>The Ghost in the Quantization:</strong> When we discared 90% of a model's information, what did we lose? Was it noise, or latent potential for "black swan" events?</li>
+    <li><strong>The Biological Bit-Rate:</strong> If the brain runs on 20 watts, what is its effective quantization? Is consciousness a "1-bit" phenomenon emerging from an analog substrate?</li>
+    <li><strong>Recursive Optimization:</strong> Can a model optimize its own hardware? Can we use Evolutionary Model Merge to design the next generation of NorthPole chips?</li>
 </ul>
-<p>
-    Decentralization wins when:
-</p>
-<ul>
-    <li><strong>Latency kills:</strong> Speed-of-light is non-negotiable (autonomous vehicles, AR/VR).</li>
-    <li><strong>Privacy regulations tighten:</strong> GDPR, data sovereignty, medical records.</li>
-    <li><strong>Energy costs explode:</strong> Moving data is more expensive than computing locally.</li>
-</ul>
-<p>
-    But here's the twist: <strong>quantum computing broke the cycle</strong>. It didn't make classical computers smaller—it changed the game entirely. Are we on the cusp of a similar paradigm shift in AI? Neuromorphic chips? Biological computation? Or is compression just another turn of the same wheel?
-</p>
 
-<h2>2. The Lottery Ticket Hypothesis: Maybe We Never Needed to Go Big</h2>
+<h2>10. Conclusion: The Grand Unification</h2>
 <p>
-    Jonathan Frankle's 2019 bombshell: dense networks contain sparse subnetworks—"winning tickets"—that train to comparable accuracy when initialized correctly. <strong>This suggests the entire scaling era might have been inefficient search</strong>.
+    "Honey, I Shrunk the Neural Net" is more than a catchy title; it is the inevitable destiny of artificial intelligence. The era of infinite cloud compute is giving way to the era of the constrained edge. By embracing the constraints of thermodynamics, we are forcing AI to become more like us: efficient, robust, and capable of doing more with less.
 </p>
 <p>
-    Think about it: If a ResNet-50 can be pruned to 10% density post-training, why did we need the other 90% at all? The answer is uncomfortable: <em>We don't know how to find the sparse solution directly</em>. Overparameterization is a crutch for bad optimization.
+    From Microsofts ternary weights to Sakanas evolutionary hybrids, the field is converging on a singular truth: intelligence is not about the accumulation of parameters, but the optimization of structure. We are building the "Modals," distilling the "Teachers," and wiring the "Swarms."
 </p>
 <p>
-    This is reminiscent of the <strong>No Free Lunch theorem</strong>: no single algorithm dominates across all problems. We scaled up because gradient descent in high dimensions is easy. But the lottery ticket hypothesis hints that there's a more elegant path—we just haven't found it yet.
-</p>
-<blockquote>
-    "The initialization matters more than the weights. The topology matters more than the scale."
-</blockquote>
-<p>
-    But here's the rub: <strong>Transformers resist pruning</strong> better than CNNs resist quantization. The all-to-all attention mechanism seems fundamentally dense. This isn't a bug—it's a hint. Maybe <em>some kinds of intelligence require density</em>, while others benefit from sparsity. Vision: sparse. Language: dense. Planning: ?
-</p>
-
-<h2>3. Quantization: Dancing at the Boundary of Chaos</h2>
-<p>
-    The fact that neural networks tolerate 4-bit quantization is <em>astonishing</em>. We're reducing 32 bits of floating-point precision down to 16 discrete values. That's throwing away 99.95% of the representational space. And yet—perplexity barely budges.
-</p>
-<p>
-    Why does this work? Two competing theories:
-</p>
-<ul>
-    <li><strong>The Lottery Ticket View:</strong> Most weights are noise. Quantization is just aggressive regularization that forces the model to use its "real" parameters.</li>
-    <li><strong>The Loss Landscape View:</strong> The optimal solution sits in a wide, flat basin. Small perturbations (quantization noise) don't significantly change the output because the gradient is nearly zero.</li>
-</ul>
-<p>
-    Both can't be fully true. If weights are noise, why do models benefit from scale? If the landscape is flat, why does fine-tuning improve performance? The answer is likely <strong>layer-dependent</strong>: early layers (feature extractors) are robust and compressible. Late layers (task heads) are brittle and precision-sensitive.
-</p>
-<p>
-    But we're hitting a wall at ~3 bits. Below that, catastrophic degradation. <strong>Is this fundamental?</strong> Information theory says no—if the model truly learns a compressed representation, we should be able to quantize arbitrarily. The fact that we can't suggests our models are <em>not yet optimal representations</em>. They're approximations that happen to work.
-</p>
-<figure>
-    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2000&auto=format&fit=crop" 
-        alt="Digital neural network visualization"
-        style="width: 100%; border-radius: 12px; height: auto;">
-    <figcaption style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
-        The phase transition from analog to digital intelligence.
-    </figcaption>
-</figure>
-
-<h2>4. The Quantum Computer Analogy: Are We Asking the Wrong Question?</h2>
-<p>
-    When quantum computers arrived, the question wasn't "how do we make classical computers smaller?" It was "what problems have quantum structure?" Shor's algorithm for factoring. Grover's for search. Quantum simulation for chemistry. <strong>The paradigm shift wasn't scale—it was substrate</strong>.
-</p>
-<p>
-    Are we making the same mistake with AI? We're trying to compress Transformers—but maybe Transformers are the wrong architecture for edge deployment. CNNs dominated vision not because they're "better," but because they match the structure of images: local, hierarchical, translation-invariant.
-</p>
-<p>
-    What's the "quantum" equivalent for intelligence? Candidates:
-</p>
-<ul>
-    <li><strong>Neuromorphic computing (e.g., Intel Loihi, IBM TrueNorth):</strong> Spiking neural networks that operate asynchronously, event-driven, like biological neurons. Orders of magnitude more efficient—but require rethinking everything about training.</li>
-    <li><strong>In-memory computing:</strong> Analog matrix multiplication using resistive crossbars. Eliminates the von Neumann bottleneck. But noisy, imprecise, and hard to manufacture at scale.</li>
-    <li><strong>Photonic neural networks:</strong> Computation at the speed of light, literally. But training is an open problem—backprop assumes differentiable digital operations.</li>
-</ul>
-<p>
-    The pattern: <strong>efficiency requires co-designing algorithms and hardware</strong>. Transformers were designed for GPUs. If we want edge intelligence, we need architectures designed for edge constraints: sparsity, locality, asynchrony.
-</p>
-
-<h2>5. The Thermodynamic Limit: 20 Watts</h2>
-<p>
-    The ultimate benchmark isn't other silicon. It's biology. The human brain runs on ~20 watts. It does few-shot learning, complex planning, and motor control with an energy budget that wouldn't power a lightbulb.
-</p>
-<p>
-    Current AI is orders of magnitude away from this <strong>Landauer limit</strong>. Training GPT-4 cost an estimated 50 gigawatt-hours. We are bruteforcing intelligence with energy.
-</p>
-<p>
-    This discrepancy suggests that our current paradigm—dense matrix multiplication on high-frequency clock cycles—is wildly inefficient foundationally. The future might not be "smaller" digital networks, but <strong>hybrid analog-digital systems</strong> where we embrace noise rather than fight it. Using the physics of the device to perform the computation (like a memristor) rather than simulating boolean logic gates.
-</p>
-
-<h2>Conclusion: The End of the Monolith</h2>
-<p>
-    We aren't just shrinking models. We are witnessing the <strong>speciation of intelligence</strong>.
-</p>
-<p>
-    The era of the "General Purpose Monolith" will be look back upon like the era of the Mainframe. Impressive, important, but ultimately a transition state. The future is a swarm of highly specialized, ultra-efficient, locally-running agents that coordinate loosely.
-</p>
-<p>
-    We are moving from building <em>Gods in the Cloud</em> to breeding <em>Insects in the Dust</em>. And as any evolutionary biologist will tell you: the insects run the world.
+    As we stand on the precipice of 2026, the question is no longer just "can machines think?" but "can they think on a battery?" The answer, written in the 1-bit weights of the future, is a resounding yes.
 </p>
 
 <hr>
 
+<h3>Technical Addendum: Optimization Methodologies</h3>
+<table style="width:100%; border-collapse: collapse; font-size: 0.9rem; margin-top: 1rem;">
+    <thead>
+        <tr style="border-bottom: 2px solid #ddd; text-align: left;">
+            <th style="padding: 8px;">Technique</th>
+            <th style="padding: 8px;">Mechanism</th>
+            <th style="padding: 8px;">Biological Analog</th>
+            <th style="padding: 8px;">Key Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 8px;"><strong>Ternary Quantization</strong></td>
+            <td style="padding: 8px;">Weights $\in \{-1, 0, 1\}$</td>
+            <td style="padding: 8px;">All-or-nothing Action Potentials</td>
+            <td style="padding: 8px;">BitNet b1.58</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 8px;"><strong>Knowledge Distillation</strong></td>
+            <td style="padding: 8px;">Student mimics Teacher</td>
+            <td style="padding: 8px;">Apprenticeship Learning</td>
+            <td style="padding: 8px;">MobileLLM</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 8px;"><strong>Evolutionary Merging</strong></td>
+            <td style="padding: 8px;">Genetic mixing of layers</td>
+            <td style="padding: 8px;">Recombination</td>
+            <td style="padding: 8px;">Sakana EvoLLM</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+            <td style="padding: 8px;"><strong>Gossip Learning</strong></td>
+            <td style="padding: 8px;">P2P weight exchange</td>
+            <td style="padding: 8px;">Bee Waggle Dance</td>
+            <td style="padding: 8px;">Edge Swarms</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px;"><strong>Event-Driven Compute</strong></td>
+            <td style="padding: 8px;">Asynchronous spikes</td>
+            <td style="padding: 8px;">Retinal Processing</td>
+            <td style="padding: 8px;">Neuromorphic / Loihi 2</td>
+        </tr>
+    </tbody>
+</table>
+
 <h3>References & Further Reading</h3>
 <p class="references" style="font-size: 0.85rem; color: #666; line-height: 1.6;">
-    [1] Frankle, J., & Carbin, M. (2019). <em>The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks.</em><br>
-    [2] Hestness, J., et al. (2017). <em>Deep Learning Scaling is Predictable, Empirically.</em> (The "Scaling Laws" paper)<br>
-    [3] Hooker, S. (2020). <em>The Hardware Lottery.</em> (Why we use the algorithms that fit our chips, not the ones that are best)<br>
-    [4] LeCun, Y. (2022). <em>A Path Towards Autonomous Machine Intelligence.</em> (On the limits of LLMs)<br>
-    [5] Mead, C. (1990). <em>Neuromorphic Electronic Systems.</em>
+    [1] Frankle, J., & Carbin, M. (2019). The Lottery Ticket Hypothesis.<br>
+    [2] Hooker, S. (2020). The Hardware Lottery.<br>
+    [3] Ma, S., et al. (2024). The Era of 1-bit LLMs: All Large Language Models Are in 1.58 Bits (BitNet).<br>
+    [4] Sakana AI (2024). Evolutionary Model Merge.<br>
+    [5] Karpathy, A. (2025). LLM Year in Review.<br>
+    [6] LeCun, Y. (2022). A Path Towards Autonomous Machine Intelligence.
 </p>
 </article>
     </main>
@@ -193,7 +274,7 @@
                     </div>
                     <p class="footer-tagline">
                         A digital garden where research meets reverie. This is the synthesis of everything I am
-                        learning—unfiltered and constantly evolving.
+                        learningâ€”unfiltered and constantly evolving.
                     </p>
                 </div>
 
@@ -213,7 +294,7 @@
 
             <div class="footer-bottom">
                 <div class="copyright">
-                    © 2026 Blog Post by rox. All rights reserved.
+                    Â© 2026 Blog Post by rox. All rights reserved.
                 </div>
                 <div class="footer-socials">
                     <a href="https://github.com/riteshroshann" target="_blank" title="GitHub">
@@ -241,3 +322,4 @@
 </body>
 
 </html>
+
