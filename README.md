@@ -22,7 +22,7 @@
   <tr>
     <td align="center">
       <p style="font-family: 'Georgia', serif; font-size: 1.5em; line-height: 1.6; color: #f0f0f0;">
-        <i>Hi, I'm Ritesh Roshan Sahoo. I am a student and this is a <a href="https://riteshroshann.github.io/blog-post/" style="color: #f0f0f0; text-decoration: underline;">digital garden</a> for <br> my curious thoughts—a place where research meets reverie.</i>
+        <i>Hi, I'm Ritesh Roshan Sahoo. I am a student and this is a digital garden for <br> my curious thoughts—a place where research meets reverie.</i>
       </p>
     </td>
   </tr>
@@ -45,7 +45,7 @@
         </p>
         <br>
         <p align="center">
-          <a href="https://riteshroshann.github.io/blog-post/" style="color: #88ccff; font-style: italic;">Explore full research archives at riteshroshann.github.io/blog-post →</a>
+          <a href="https://riteshroshann.github.io/blog-post/" style="color: #88ccff; font-style: italic;">Explore the archives at riteshroshann.github.io/blog-post →</a>
         </p>
       </div>
     </td>
@@ -59,4 +59,5 @@
 </a>
 
 </div>
+
 
