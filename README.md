@@ -4,11 +4,6 @@
   <img src="https://readme-typing-svg.demolab.com?font=Playfair+Display&weight=500&size=45&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&height=100&lines=Building+the+Future." alt="Building the Future." />
 </a>
 
-<p style="font-family: serif; font-size: 1.2em; letter-spacing: 2px; margin-top: -10px;">
-  <a href="https://riteshroshann.github.io/blog-post/" style="text-decoration: none; color: #fff;">
-    <b>[ ENTER THE DIGITAL GARDEN ]</b>
-  </a>
-</p>
 
 <a href="https://riteshroshann.github.io/blog-post/">
   <img src="https://github.com/user-attachments/assets/ad268589-2f80-43ea-a945-e9d469ff9beb" 
@@ -64,3 +59,4 @@
 </a>
 
 </div>
+
