@@ -6,11 +6,11 @@
 
 <img src="https://github.com/user-attachments/assets/ad268589-2f80-43ea-a945-e9d469ff9beb" 
      alt="Neo vs. Morpheus in dojo in Matrix Resurrection" 
-     width="95%" 
-     style="border-radius: 12px; margin-top: 20px;">
+     width="100%" 
+     style="margin-top: 20px; display: block;">
 
 <p align="center">
-  <i><font color="#888">Neo vs. Morpheus in dojo in Matrix Resurrection</font></i>
+  <i><font color="#888" size="2">Neo vs. Morpheus in dojo in Matrix Resurrection</font></i>
 </p>
 
 <br><br>
@@ -18,7 +18,7 @@
 <table width="800px" border="0">
   <tr>
     <td align="center">
-      <p style="font-size: 1.3em;">
+      <p style="font-family: 'Georgia', serif; font-size: 1.4em; line-height: 1.6; color: #f0f0f0;">
         <i>Hi, I'm Ritesh Roshan Sahoo. I am a student and this is a digital garden for <br> my curious thoughts—a place where research meets reverie.</i>
       </p>
     </td>
@@ -30,15 +30,17 @@
 <table width="750px" border="0">
   <tr>
     <td align="left">
-      <p>
-        I am obsessed with the convergence of graphics, intelligence, and the untold stories hidden in technical appendices. Here, I document my journey exploring <b>large world models, spatial intelligence, crypto, quantum computing, AI, and competitive programming.</b>
-      </p>
-      <p>
-        But this space is not just for code and equations. It is for the random book that changed my perspective, the research paper that felt like poetry, and the creative experiments that didn't make it into a commit message.
-      </p>
-      <p>
-        Expect deep dives into papers, reviews of obscure literature, occasional poems, and raw updates on the engines I am building. This is the synthesis of everything I am learning—unfiltered and constantly evolving.
-      </p>
+      <div style="font-family: 'Times New Roman', serif; font-size: 1.15em; line-height: 1.8; color: #cccccc; letter-spacing: 0.01em;">
+        <p>
+          I am obsessed with the convergence of <b>graphics, intelligence, and the untold stories</b> hidden in technical appendices. Here, I document my journey exploring large world models, spatial intelligence, crypto, quantum computing, AI, and competitive programming.
+        </p>
+        <p>
+          But this space is not just for code and equations. It is for the random book that changed my perspective, the research paper that felt like poetry, and the creative experiments that didn't make it into a commit message.
+        </p>
+        <p>
+          Expect deep dives into papers, reviews of obscure literature, occasional poems, and raw updates on the engines I am building. This is the synthesis of everything I am learning—unfiltered and constantly evolving.
+        </p>
+      </div>
     </td>
   </tr>
 </table>
