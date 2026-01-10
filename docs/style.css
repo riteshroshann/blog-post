@@ -307,13 +307,20 @@ figure {
     margin: 3rem 0;
 }
 
-figure img,
-.wide-figure img {
-    width: 100%;
+figure img {
+    max-width: 100%;
+    width: auto;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     display: block;
+    margin: 0 auto;
+    /* Center smaller images */
+}
+
+.wide-figure img {
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Treat wide-figure same as standard figure now */
