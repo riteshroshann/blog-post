@@ -55,32 +55,38 @@
             </p>
         </section>
 
-        <section class="contact-card" aria-label="Contact form">
-            <form action="https://formspree.io/f/mykkgrnr" class="fs-form" target="_top" method="POST">
-                <div class="fs-row">
-                    <div class="fs-field">
-                        <label class="fs-label" for="name">Name</label>
-                        <input class="fs-input" id="name" name="name" autocomplete="name" required />
+        <section class="contact-split" aria-label="Contact form and image">
+            <section class="contact-card" aria-label="Contact form">
+                <form action="https://formspree.io/f/mykkgrnr" class="fs-form" target="_top" method="POST">
+                    <div class="fs-row">
+                        <div class="fs-field">
+                            <label class="fs-label" for="name">Name</label>
+                            <input class="fs-input" id="name" name="name" autocomplete="name" required />
+                        </div>
+
+                        <div class="fs-field">
+                            <label class="fs-label" for="email">Email</label>
+                            <input class="fs-input" id="email" name="email" type="email" autocomplete="email" required />
+                        </div>
                     </div>
 
                     <div class="fs-field">
-                        <label class="fs-label" for="email">Email</label>
-                        <input class="fs-input" id="email" name="email" type="email" autocomplete="email" required />
+                        <label class="fs-label" for="message">Message</label>
+                        <textarea class="fs-textarea" id="message" name="message" rows="6" required></textarea>
+                        <p class="fs-description">A few lines are perfect.</p>
                     </div>
-                </div>
 
-                <div class="fs-field">
-                    <label class="fs-label" for="message">Message</label>
-                    <textarea class="fs-textarea" id="message" name="message" rows="6" required></textarea>
-                    <p class="fs-description">A few lines are perfect.</p>
-                </div>
+                    <input class="fs-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
 
-                <input class="fs-honeypot" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+                    <div class="fs-button-group">
+                        <button class="fs-button" type="submit">Send</button>
+                    </div>
+                </form>
+            </section>
 
-                <div class="fs-button-group">
-                    <button class="fs-button" type="submit">Send</button>
-                </div>
-            </form>
+            <aside class="contact-sidebar" aria-label="Contact sidebar image">
+                <img src="/blog-post/assets/images/contact-sidebar.jpg" alt="A quiet, rain-lit garden path" loading="lazy">
+            </aside>
         </section>
     </main>
 
