@@ -540,11 +540,11 @@ footer .container {
 
 .contact-split {
     display: grid;
-    grid-template-columns: minmax(320px, 420px) minmax(320px, 420px);
-    gap: 1.6rem;
-    align-items: start;
+    grid-template-columns: minmax(340px, 440px) minmax(420px, 560px);
+    gap: 0;
+    align-items: stretch;
     justify-content: center;
-    max-width: 920px;
+    max-width: 1040px;
     margin: 0 auto;
 }
 
@@ -558,6 +558,11 @@ footer .container {
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.10);
     box-shadow: none;
+    height: 100%;
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
 }
 
 .contact-sidebar {
@@ -566,7 +571,11 @@ footer .container {
     border: 1px solid rgba(0, 0, 0, 0.10);
     background: #111;
     display: flex;
-    height: 460px;
+    height: 100%;
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0;
 }
 
 .contact-sidebar img {
@@ -772,6 +781,19 @@ footer .container {
 
     .contact-sidebar {
         height: 340px;
+    }
+
+    .contact-card {
+        border-right: 1px solid rgba(0, 0, 0, 0.10);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        height: auto;
+    }
+
+    .contact-sidebar {
+        border-left: 1px solid rgba(0, 0, 0, 0.10);
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 
     .contact-page .fs-row {
