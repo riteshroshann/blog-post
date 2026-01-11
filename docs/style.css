@@ -540,11 +540,11 @@ footer .container {
 
 .contact-split {
     display: grid;
-    grid-template-columns: minmax(240px, 300px) 200px;
+    grid-template-columns: minmax(200px, 260px) 200px;
     gap: 0;
-    align-items: start;
+    align-items: stretch;
     justify-content: center;
-    max-width: 500px;
+    max-width: 460px;
     margin: 0 auto;
 }
 
@@ -559,7 +559,6 @@ footer .container {
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.10);
     box-shadow: none;
-    height: 440px;
 
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
