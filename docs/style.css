@@ -62,10 +62,11 @@ header {
     padding: 1.5rem 0;
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(0, 0, 0, 0.92);
     backdrop-filter: blur(10px);
     z-index: 100;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #1f1f1f;
+    color: #fff;
 }
 
 header .container {
@@ -81,7 +82,7 @@ header .container {
     font-family: var(--font-body);
     font-weight: 600;
     font-size: 1.1rem;
-    color: #000;
+    color: #fff;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -90,7 +91,7 @@ header .container {
 .logo-icon {
     width: 20px;
     height: 20px;
-    background: #000;
+    background: #fff;
     clip-path: polygon(0 0, 100% 0, 100% 100%);
 }
 
@@ -103,11 +104,11 @@ nav {
 nav a {
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--secondary-text);
+    color: rgba(255, 255, 255, 0.78);
 }
 
 nav a:hover {
-    color: #000;
+    color: #fff;
 }
 
 .social-link {
