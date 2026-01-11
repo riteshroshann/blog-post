@@ -773,17 +773,22 @@ footer .container {
     }
 
     .contact-hero h1 {
-        grid-template-columns: 1fr 120px;
-        gap: 0;
-        align-items: stretch;
+        font-size: 2.25rem;
+    }
 
     .contact-lead {
         font-size: 0.95rem;
-        aspect-ratio: auto;
-        height: auto;
+        line-height: 1.6;
+    }
+
+    .contact-split {
+        grid-template-columns: 1fr 110px;
+        gap: 0;
+        align-items: stretch;
     }
 
     .contact-card {
+        padding: 0.95rem;
         height: auto;
         border-right: 0;
         border-top-right-radius: 0;
@@ -791,29 +796,20 @@ footer .container {
     }
 
     .contact-sidebar {
+        height: 100%;
         border-left: 0;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
-        justify-self: center;
-    }
 
-    .contact-card {
-        border-right: 1px solid rgba(0, 0, 0, 0.10);
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        height: auto;
-    }
-
-    .contact-sidebar {
-        border-left: 1px solid rgba(0, 0, 0, 0.10);
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
+    .contact-sidebar img {
+        object-fit: cover;
+        object-position: top center;
     }
 
     .contact-page .fs-row {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.65rem;
     }
 
     .hero h1 {
