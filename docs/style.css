@@ -773,26 +773,28 @@ footer .container {
     }
 
     .contact-hero h1 {
-        font-size: 2.25rem;
-    }
+        grid-template-columns: 1fr 120px;
+        gap: 0;
+        align-items: stretch;
 
     .contact-lead {
         font-size: 0.95rem;
-        line-height: 1.6;
+        aspect-ratio: auto;
+        height: auto;
     }
 
     .contact-card {
-        padding: 0.95rem;
-        border-radius: 10px;
-    }
-
-    .contact-split {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        height: auto;
+        border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .contact-sidebar {
-        width: 160px;
+        border-left: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
         justify-self: center;
     }
 
