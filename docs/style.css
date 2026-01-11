@@ -497,10 +497,8 @@ footer .container {
 /* Contact Page */
 .contact-page {
     color: var(--text-color);
-    background:
-        radial-gradient(1200px 600px at 20% 10%, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.00) 58%),
-        radial-gradient(900px 520px at 80% 22%, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.00) 60%),
-        linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
+    font-family: var(--font-heading);
+    background: var(--bg-color);
 }
 
 .contact-page a:hover {
@@ -530,38 +528,26 @@ footer .container {
 
 .contact-lead {
     margin: 0;
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 1.08rem;
     line-height: 1.7;
     color: var(--secondary-text);
 }
 
-.contact-card {
-    max-width: 840px;
-    margin: 0 auto;
-    padding: 2.25rem 2.1rem;
-    border-radius: 14px;
-    position: relative;
-    overflow: hidden;
-    background:
-        radial-gradient(1000px 220px at 20% -10%, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.00) 60%),
-        rgba(255, 255, 255, 0.58);
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.16),
-        0 0 0 1px rgba(255, 255, 255, 0.70) inset;
-    backdrop-filter: blur(16px);
+.contact-lead-line {
+    display: block;
 }
 
-.contact-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.00) 28%),
-        radial-gradient(700px 260px at 82% 18%, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.00) 60%);
-    pointer-events: none;
-    opacity: 0.9;
+.contact-card {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.75rem 1.7rem;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    box-shadow: none;
 }
 
 .contact-card > * {
@@ -585,7 +571,7 @@ footer .container {
 .contact-page .fs-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
+    gap: 1rem;
 }
 
 .contact-page .fs-field {
@@ -595,11 +581,10 @@ footer .container {
 }
 
 .contact-page .fs-label {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 0.92rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.70);
+    letter-spacing: 0.02em;
+    color: rgba(0, 0, 0, 0.75);
 }
 
 .contact-page .fs-description {
@@ -611,13 +596,13 @@ footer .container {
 .contact-page .fs-input,
 .contact-page .fs-textarea {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.14);
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.72));
+    background: #fff;
     color: #111;
-    padding: 0.85rem 1.05rem;
+    padding: 0.7rem 0.9rem;
     outline: none;
+    font-family: var(--font-heading);
     transition:
         border-color 160ms ease,
         box-shadow 160ms ease,
@@ -626,13 +611,13 @@ footer .container {
 }
 
 .contact-page .fs-input {
-    min-height: 3rem;
+    min-height: 2.65rem;
 }
 
 .contact-page .fs-textarea {
-    border-radius: 12px;
+    border-radius: 8px;
     resize: vertical;
-    min-height: 8.25rem;
+    min-height: 7.25rem;
 }
 
 .contact-page .fs-input::placeholder,
@@ -645,7 +630,7 @@ footer .container {
     border-color: rgba(0, 0, 0, 0.55);
     box-shadow:
         0 0 0 1px rgba(0, 0, 0, 0.10) inset,
-        0 0 0 7px rgba(0, 0, 0, 0.08);
+    0 0 0 5px rgba(0, 0, 0, 0.06);
 }
 
 .contact-page .fs-input:hover,
@@ -661,19 +646,15 @@ footer .container {
 
 .contact-page .fs-button {
     cursor: pointer;
-    border-radius: 12px;
-    padding: 0.95rem 1.9rem;
-    font-size: 1.02rem;
+    border-radius: 8px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.01em;
     color: #fff;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.00) 40%),
-        #111;
+    background: #111;
     border: 1px solid rgba(0, 0, 0, 0.55);
-    box-shadow:
-        0 18px 44px rgba(0, 0, 0, 0.18),
-        0 0 0 1px rgba(255, 255, 255, 0.16) inset;
+    box-shadow: none;
     transition:
         transform 160ms ease,
         box-shadow 160ms ease,
@@ -683,9 +664,7 @@ footer .container {
 .contact-page .fs-button:hover {
     transform: translateY(-1px);
     filter: none;
-    box-shadow:
-        0 22px 60px rgba(0, 0, 0, 0.22),
-        0 0 0 1px rgba(255, 255, 255, 0.20) inset;
+    box-shadow: none;
 }
 
 .contact-page .fs-button:active {
@@ -756,7 +735,7 @@ footer .container {
 
     .contact-card {
         padding: 1.5rem;
-        border-radius: 14px;
+        border-radius: 10px;
     }
 
     .contact-page .fs-row {
