@@ -54,6 +54,7 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 3rem; /* Space between rows */
+            margin-bottom: 4rem; /* Changed margin to separate from list */
             margin-top: 4rem;
         }
 
@@ -97,6 +98,41 @@
             font-weight: 400; /* Regular weight */
             color: var(--text-color);
         }
+
+        /* Styles for the featured cinematic video */
+        .featured-video-section {
+            margin: 4rem 0;
+        }
+
+        .featured-video-wrapper {
+            position: relative;
+            padding-bottom: 45%; /* slightly wider aspect ratio or just stick to 16:9? Let's use standard 16:9 */
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .featured-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .featured-song-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            /* margin-top: 1rem; */
+             /* User said keep title below, same style maybe but centered? */
+             /* The user wants "cinematics embed". */
+        }
+
     </style>
 </head>
 
@@ -148,34 +184,17 @@
                 I never really thought about what my absolute favorite song is, because the more I try to answer that, the harder it becomes. Some songs are tied to memory; some are tied to mood; some you only understand years later. Music ends up becoming a quiet archive of who I was, who I am, and who Im trying to become. So rather than forcing a hierarchy, this page is just a slowly growing map of the tracks that stayed with me for reasons I dont always know how to explain.
             </p>
 
-            <div class="list-section">
-                <div class="list-header">The Ensemble</div>
-                <div class="artist-list">
-                    Shawn Mendes <span class="separator">/</span> Anuv Jain <span class="separator">/</span> Akshath <span class="separator">/</span> Ludovico Einaudi <span class="separator">/</span> Ex Habit <span class="separator">/</span>
-                    Cigarettes After Sex <span class="separator">/</span> Arctic Monkeys <span class="separator">/</span> Maroon 5 <span class="separator">/</span> Kodaline <span class="separator">/</span> OneRepublic <span class="separator">/</span>
-                    Katelyn Tarver <span class="separator">/</span> Benson Boone <span class="separator">/</span> Halsey <span class="separator">/</span> Gracie Abrams <span class="separator">/</span> Banners <span class="separator">/</span> Taylor Swift <span class="separator">/</span>
-                    Lauv <span class="separator">/</span> Zayn <span class="separator">/</span> Charlie Puth <span class="separator">/</span> Martin Garrix <span class="separator">/</span> Clara Mae <span class="separator">/</span> Jade LeMac <span class="separator">/</span> Alex Warren <span class="separator">/</span>
-                    Oh The Larceny <span class="separator">/</span> Ruelle <span class="separator">/</span> Shaya Zamora <span class="separator">/</span> Noah Kahan <span class="separator">/</span> The Score <span class="separator">/</span> X Ambassadors <span class="separator">/</span>
-                    Teddy Swims <span class="separator">/</span> Skillet <span class="separator">/</span> Arijit Singh
-                </div>
-            </div>
-
-            <div class="list-section">
-                <div class="list-header">Heavy Rotation</div>
-                <div class="artist-list">
-                    Metallica <span class="separator">/</span> AC/DC <span class="separator">/</span> Led Zeppelin <span class="separator">/</span> Guns N' Roses <span class="separator">/</span> Mayhem
-                </div>
-            </div>
-
-            <div class="video-grid">
-                <!-- Video 1: Charlie Puth -->
+            <!-- Featured Video: WE DON'T TALK ANYMORE (Cinematic style) -->
+            <div class="featured-video-section">
                 <div class="video-card">
-                    <div class="video-wrapper">
+                    <div class="featured-video-wrapper">
                         <iframe src="https://www.youtube.com/embed/i_yLpCLMaKk" title="We Don't Talk Anymore" allowfullscreen></iframe>
                     </div>
                     <h3 class="song-title">We Don't Talk Anymore - Charlie Puth</h3>
                 </div>
+            </div>
 
+            <div class="video-grid">
                 <!-- Video 2: Shawn Mendes -->
                 <div class="video-card">
                     <div class="video-wrapper">
@@ -206,6 +225,25 @@
                         <iframe src="https://www.youtube.com/embed/ZT0aOrjIcVE" title="Solas" allowfullscreen></iframe>
                     </div>
                     <h3 class="song-title">Solas - Jamie Duffy</h3>
+                </div>
+            </div>
+
+            <div class="list-section">
+                <div class="list-header">The Ensemble</div>
+                <div class="artist-list">
+                    Shawn Mendes <span class="separator">/</span> Anuv Jain <span class="separator">/</span> Akshath <span class="separator">/</span> Ludovico Einaudi <span class="separator">/</span> Ex Habit <span class="separator">/</span>
+                    Cigarettes After Sex <span class="separator">/</span> Arctic Monkeys <span class="separator">/</span> Maroon 5 <span class="separator">/</span> Kodaline <span class="separator">/</span> OneRepublic <span class="separator">/</span>
+                    Katelyn Tarver <span class="separator">/</span> Benson Boone <span class="separator">/</span> Halsey <span class="separator">/</span> Gracie Abrams <span class="separator">/</span> Banners <span class="separator">/</span> Taylor Swift <span class="separator">/</span>
+                    Lauv <span class="separator">/</span> Zayn <span class="separator">/</span> Charlie Puth <span class="separator">/</span> Martin Garrix <span class="separator">/</span> Clara Mae <span class="separator">/</span> Jade LeMac <span class="separator">/</span> Alex Warren <span class="separator">/</span>
+                    Oh The Larceny <span class="separator">/</span> Ruelle <span class="separator">/</span> Shaya Zamora <span class="separator">/</span> Noah Kahan <span class="separator">/</span> The Score <span class="separator">/</span> X Ambassadors <span class="separator">/</span>
+                    Teddy Swims <span class="separator">/</span> Skillet <span class="separator">/</span> Arijit Singh
+                </div>
+            </div>
+
+            <div class="list-section">
+                <div class="list-header">Heavy Rotation</div>
+                <div class="artist-list">
+                    Metallica <span class="separator">/</span> AC/DC <span class="separator">/</span> Led Zeppelin <span class="separator">/</span> Guns N' Roses <span class="separator">/</span> Mayhem
                 </div>
             </div>
 
