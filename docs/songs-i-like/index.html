@@ -6,6 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Songs I Like - Blog Post by rox</title>
     <link rel="stylesheet" href="../style.css?v=14">
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .video-grid .featured-video {
+                grid-column: span 2;
+            }
+        }
+
+        .video-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background: #f0f0f0;
+            transition: transform 0.2s ease;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-2px);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .song-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .artist-section {
+            background: #fafafa;
+            padding: 3rem;
+            border-radius: 16px;
+            margin-top: 4rem;
+        }
+
+        .artist-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .artist-tag {
+            font-size: 1.1rem;
+            color: #444;
+            padding: 0.2rem 0;
+        }
+        
+        .artist-tag:not(:last-child)::after {
+            content: "•";
+            margin-left: 0.8rem;
+            color: #ddd;
+        }
+
+        .genre-list {
+            font-family: var(--font-heading);
+            font-style: italic;
+            color: var(--secondary-text);
+            margin-top: 2rem;
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,20 +135,108 @@
         </div>
     </header>
 
-    <main>
+    <main class="container">
         <div class="article-header">
             <h1>Songs I Like</h1>
         </div>
 
         <article class="article-content">
             <p class="lead" style="border-bottom: none; margin-bottom: 2rem;">
-                A collection of songs that resonate with me.
+                I never thought of what's the absolute fav song but damn is it hard...
             </p>
 
-            <p>
-                <!-- Placeholder for songs list or content -->
-                Work in progress...
+            <p style="margin-bottom: 2rem;">
+                Though I guess I definitely wanna keep <strong>We Don't Talk Anymore</strong> by Charlie Puth & Selena Gomez.
+                And then make sure to listen to the rest—basically from every genre I like. I guess it depends upon mood, though the ones below feel more moving.
             </p>
+
+            <div class="video-grid">
+                <!-- Video 1: Charlie Puth -->
+                <div class="video-card featured-video">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/i_yLpCLMaKk" title="We Don't Talk Anymore" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- Video 2: Shawn Mendes -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/KkGVmN68ByU" title="Mercy" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="song-title">Mercy - Shawn Mendes</h3>
+                </div>
+
+                <!-- Video 3: Alps (Cover) -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/tKkW0UrixIk" title="Alps" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="song-title">Alps - Marianne Beaulieu (Cover)</h3>
+                </div>
+
+                <!-- Video 4: One Republic -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/RSoJXOsfgTo" title="Wanted" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="song-title">Wanted - OneRepublic</h3>
+                </div>
+
+                <!-- Video 5: Solas -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ZT0aOrjIcVE" title="Solas" allowfullscreen></iframe>
+                    </div>
+                    <h3 class="song-title">Solas - Jamie Duffy</h3>
+                </div>
+            </div>
+
+            <div class="artist-section">
+                <h3>The Rotation</h3>
+                <p>The artists that make up the soundtrack:</p>
+                <div class="artist-cloud">
+                    <span class="artist-tag">Shawn Mendes</span>
+                    <span class="artist-tag">Ex Habit</span>
+                    <span class="artist-tag">Cigarettes After Sex</span>
+                    <span class="artist-tag">Arctic Monkeys</span>
+                    <span class="artist-tag">Maroon 5</span>
+                    <span class="artist-tag">Kodaline</span>
+                    <span class="artist-tag">OneRepublic</span>
+                    <span class="artist-tag">Katelyn Tarver</span>
+                    <span class="artist-tag">Benson Boone</span>
+                    <span class="artist-tag">Halsey</span>
+                    <span class="artist-tag">Gracie Abrams</span>
+                    <span class="artist-tag">Banners</span>
+                    <span class="artist-tag">Taylor Swift</span>
+                    <span class="artist-tag">Lauv</span>
+                    <span class="artist-tag">Zayn</span>
+                    <span class="artist-tag">Charlie Puth</span>
+                    <span class="artist-tag">Martin Garrix</span>
+                    <span class="artist-tag">Clara Mae</span>
+                    <span class="artist-tag">Jade LeMac</span>
+                    <span class="artist-tag">Alex Warren</span>
+                    <span class="artist-tag">Oh The Larceny</span>
+                    <span class="artist-tag">Ruelle</span>
+                    <span class="artist-tag">Shaya Zamora</span>
+                    <span class="artist-tag">Noah Kahan</span>
+                    <span class="artist-tag">The Score</span>
+                    <span class="artist-tag">X Ambassadors</span>
+                    <span class="artist-tag">Teddy Swims</span>
+                    <span class="artist-tag">Skillet</span>
+                    <span class="artist-tag">Arijit Singh</span>
+                </div>
+                
+                <p style="margin-top: 1.5rem; color: #666;">And jumping into the heavier side when the mood hits:</p>
+                <div class="artist-cloud">
+                    <span class="artist-tag">Metallica</span>
+                    <span class="artist-tag">AC/DC</span>
+                    <span class="artist-tag">Led Zeppelin</span>
+                    <span class="artist-tag">Guns N' Roses</span>
+                    <span class="artist-tag">Mayhem</span>
+                    <span class="artist-tag">and so many more...</span>
+                </div>
+            </div>
+
         </article>
     </main>
 
