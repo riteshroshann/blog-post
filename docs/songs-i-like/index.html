@@ -72,10 +72,11 @@
             gap: 0.1rem; /* Minimal spacing between video and title */
         }
 
-        .video-wrapper {
+        .video-wrapper,
+        .featured-video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
+            width: 100%;
+            aspect-ratio: 21 / 9; /* Slim cinematic */
             overflow: hidden;
             border-radius: 8px; /* Slightly tighter radius */
             background: #000;
@@ -92,12 +93,13 @@
 
         .song-title {
             font-family: var(--font-heading);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.1;
             margin: 0;
             margin-top: 0;
             font-weight: 400;
             color: var(--text-color);
+            text-align: center;
         }
 
         /* Override global article h3 margins from style.css */
@@ -105,41 +107,20 @@
             margin: 0;
         }
 
-        /* Styles for the featured cinematic video */
+        /* Styles for the featured cinematic video (keep layout same as others) */
         .featured-video-section {
-            margin: 4rem 0;
-            /* Break out of article width to feel like a hero */
-            margin-left: calc(50% - 50vw);
-            margin-right: calc(50% - 50vw);
-            padding-left: 2rem;
-            padding-right: 2rem;
+            margin: 4rem 0 2rem;
         }
 
-        .featured-video-section .video-card {
-            max-width: 1050px;
-            margin: 0 auto;
-            gap: 0.6rem;
+        @supports not (aspect-ratio: 1 / 1) {
+            .video-wrapper,
+            .featured-video-wrapper {
+                height: 0;
+                padding-bottom: 42.857%; /* 21:9 fallback */
+            }
         }
         
-        .featured-video-section .song-title {
-            margin-top: 0;
-            text-align: center;
-            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-            line-height: 1.12;
-            letter-spacing: -0.01em;
-        }
-
-        .featured-video-wrapper {
-            position: relative;
-            padding-bottom: 45%; /* slightly wider aspect ratio or just stick to 16:9? Let's use standard 16:9 */
-            padding-bottom: 56.25%; 
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            background: #000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        
+        .video-wrapper iframe,
         .featured-video-wrapper iframe {
             position: absolute;
             top: 0;
