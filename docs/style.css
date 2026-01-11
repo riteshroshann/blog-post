@@ -725,6 +725,27 @@ footer .container {
     pointer-events: none;
 }
 
+.fs-status {
+    margin-top: 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    text-align: center;
+    min-height: 1.4em;
+}
+
+.fs-status-success {
+    color: #2d7a4f;
+}
+
+.fs-status-error {
+    color: #b94a48;
+}
+
+.contact-page .fs-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .fs-button,
     .fs-input,

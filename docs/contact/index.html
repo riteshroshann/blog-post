@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Blog Post by rox</title>
-    <link rel="stylesheet" href="/blog-post/style.css?v=2026-01-12-14">
+    <link rel="stylesheet" href="/blog-post/style.css?v=2026-01-12-15">
 </head>
 
 <body class="contact-page">
@@ -57,7 +57,7 @@
 
         <section class="contact-split" aria-label="Contact form and image">
             <section class="contact-card" aria-label="Contact form">
-                <form action="https://formspree.io/f/mykkgrnr" class="fs-form" target="_top" method="POST">
+                <form id="contact-form" action="https://formspree.io/f/mykkgrnr" class="fs-form" method="POST">
                     <div class="fs-row">
                         <div class="fs-field">
                             <label class="fs-label" for="name">Name</label>
@@ -81,6 +81,8 @@
                     <div class="fs-button-group">
                         <button class="fs-button" type="submit">Send</button>
                     </div>
+
+                    <p id="form-status" class="fs-status" aria-live="polite"></p>
                 </form>
             </section>
 
@@ -146,6 +148,42 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        const button = form.querySelector('.fs-button');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            button.disabled = true;
+            button.textContent = 'Sending…';
+            status.textContent = '';
+            status.className = 'fs-status';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    form.reset();
+                    status.textContent = 'Thank you! Your message has been sent.';
+                    status.classList.add('fs-status-success');
+                } else {
+                    throw new Error('Something went wrong');
+                }
+            } catch (error) {
+                status.textContent = 'Oops! There was a problem. Please try again.';
+                status.classList.add('fs-status-error');
+            }
+
+            button.disabled = false;
+            button.textContent = 'Send';
+        });
+    </script>
 </body>
 
 </html>
