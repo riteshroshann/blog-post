@@ -100,20 +100,33 @@
             color: var(--text-color);
         }
 
+        /* Override global article h3 margins from style.css */
+        .article-content h3.song-title {
+            margin: 0;
+        }
+
         /* Styles for the featured cinematic video */
         .featured-video-section {
             margin: 4rem 0;
+            /* Break out of article width to feel like a hero */
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
 
         .featured-video-section .video-card {
-            gap: 0.24rem;
+            max-width: 1050px;
+            margin: 0 auto;
+            gap: 0.6rem;
         }
         
         .featured-video-section .song-title {
             margin-top: 0;
             text-align: center;
-            font-size: 1.6rem;
-            line-height: 1.15;
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            line-height: 1.12;
+            letter-spacing: -0.01em;
         }
 
         .featured-video-wrapper {
