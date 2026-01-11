@@ -550,7 +550,8 @@ footer .container {
 
 .contact-card {
     max-width: none;
-    margin: 0 auto;
+    margin: 0;
+    width: 100%;
     padding: 1rem 0.95rem;
     border-radius: 10px;
     position: relative;
@@ -572,6 +573,7 @@ footer .container {
     background: #fff;
     display: flex;
     aspect-ratio: 1 / 2;
+    width: 100%;
 
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
