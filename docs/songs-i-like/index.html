@@ -69,7 +69,7 @@
         .video-card {
             display: flex;
             flex-direction: column;
-            gap: 0.1rem; /* Minimal spacing between video and title */
+            gap: 0.45rem; /* More breathing room between video and title */
         }
 
         .video-wrapper,
@@ -78,8 +78,11 @@
             width: 100%;
             aspect-ratio: 21 / 9; /* Slim cinematic */
             overflow: hidden;
-            border-radius: 8px; /* Slightly tighter radius */
+            border-radius: 16px;
             background: #000;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+            outline: 1px solid rgba(0, 0, 0, 0.06);
+            transform: translateZ(0);
         }
 
         .video-wrapper iframe {
@@ -93,12 +96,12 @@
 
         .song-title {
             font-family: var(--font-heading);
-            font-size: 0.85rem;
-            line-height: 1.1;
+            font-size: 0.8rem;
+            line-height: 1.15;
             margin: 0;
             margin-top: 0;
-            font-weight: 400;
-            color: var(--text-color);
+            font-weight: 500;
+            color: #3a3a3a;
             text-align: center;
         }
 
