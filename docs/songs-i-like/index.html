@@ -76,13 +76,21 @@
         .featured-video-wrapper {
             position: relative;
             width: 100%;
-            aspect-ratio: 21 / 9; /* Slim cinematic */
             overflow: hidden;
             border-radius: 16px;
             background: #000;
             box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
             outline: 1px solid rgba(0, 0, 0, 0.06);
             transform: translateZ(0);
+        }
+
+        /* Make the grid cards feel bigger (taller) while keeping featured cinematic */
+        .video-wrapper {
+            aspect-ratio: 16 / 9;
+        }
+
+        .featured-video-wrapper {
+            aspect-ratio: 21 / 9;
         }
 
         .video-wrapper iframe {
@@ -125,6 +133,13 @@
             .video-wrapper,
             .featured-video-wrapper {
                 height: 0;
+            }
+
+            .video-wrapper {
+                padding-bottom: 56.25%; /* 16:9 fallback */
+            }
+
+            .featured-video-wrapper {
                 padding-bottom: 42.857%; /* 21:9 fallback */
             }
         }
