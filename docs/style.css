@@ -762,16 +762,25 @@ footer .container {
     }
 
     .contact-page main.container {
-        padding-top: 3.25rem;
-        padding-bottom: 4.5rem;
+        padding-top: 2.75rem;
+        padding-bottom: 3.75rem;
+    }
+
+    .contact-hero {
+        margin-bottom: 1.6rem;
     }
 
     .contact-hero h1 {
         font-size: 2.25rem;
     }
 
+    .contact-lead {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
     .contact-card {
-        padding: 1.1rem;
+        padding: 0.95rem;
         border-radius: 10px;
     }
 
@@ -781,7 +790,7 @@ footer .container {
     }
 
     .contact-sidebar {
-        height: 340px;
+        height: 280px;
     }
 
     .contact-card {
