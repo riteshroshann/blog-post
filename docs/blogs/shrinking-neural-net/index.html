@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Honey, I Shrunk the Neural Net: The Thermodynamics of Edge Intelligence | Ritesh Roshan</title>
     <link rel="stylesheet" href="/blog-post/style.css?v=2026-refined">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -70,7 +78,7 @@ m-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.7
                 The human brain is an existence proof of efficient general intelligence, operating on a power budget of approximately 20 watts. By contrast, a single NVIDIA H100 GPU draws upwards of 700 watts. When clustered into the training runs of frontier models, the energy expenditure rivals that of small municipalities. This discrepancy is not merely an engineering inefficiency; it is a physics problem.
             </p>
             <p>
-                Rolf Landauer&#39;s 1961 principle established that the erasure of information is thermodynamically irreversible, incurring a minimum heat cost of $k_B T \ln 2$. Biological systems have evolved over eons to operate surprisingly close to this limit. Silicon, however, is hampered by the <strong>Von Neumann bottleneck</strong>&mdash;the energetic cost of shuttling data between memory and compute units often exceeds the cost of the computation itself. For edge intelligence to be viable, we cannot simply &ldquo;shrink&rdquo; the cloud model; we must fundamentally re-architect the flow of information to minimize this entropy tax.
+                Rolf Landauer&#39;s 1961 principle established that the erasure of information is thermodynamically irreversible, incurring a minimum heat cost of `$k_B T \ln 2`$. Biological systems have evolved over eons to operate surprisingly close to this limit. Silicon, however, is hampered by the <strong>Von Neumann bottleneck</strong>&mdash;the energetic cost of shuttling data between memory and compute units often exceeds the cost of the computation itself. For edge intelligence to be viable, we cannot simply &ldquo;shrink&rdquo; the cloud model; we must fundamentally re-architect the flow of information to minimize this entropy tax.
             </p>
 
             <h2>2. The Resolution of Thought: The 1-Bit Revolution</h2>
@@ -80,7 +88,7 @@ m-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.7
             
             <h3>The End of Multiplication: BitNet b1.58</h3>
             <p>
-                Microsoft Research&#39;s <strong>BitNet b1.58</strong> offers a radical provocation: models may not need floating-point weights at all. By constraining weights to a ternary set $\{-1, 0, 1\}$, the network ceases to require complex matrix multiplication, relying instead on integer addition and subtraction. The moniker &ldquo;1.58 bits&rdquo; refers to the information content of a ternary system ($\log_2 3$).
+                Microsoft Research&#39;s <strong>BitNet b1.58</strong> offers a radical provocation: models may not need floating-point weights at all. By constraining weights to a ternary set `$\{-1, 0, 1\}$`, the network ceases to require complex matrix multiplication, relying instead on integer addition and subtraction. The moniker &ldquo;1.58 bits&rdquo; refers to the information content of a ternary system (`$\log_2 3$`).
             </p>
             <p>
                 The implication is profound. If a model can reason effectively with 1-bit weights, it suggests that the &ldquo;intelligence&rdquo; of a neural network resides in its topology and connectivity, not in the precise float values of its parameters. This mirrors biological synapses, which are noisy and low-precision, yet robust. We are moving from high-fidelity computation to <strong>high-fidelity structure</strong>.
