@@ -53,8 +53,8 @@
         .video-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3rem; /* Space between rows */
-            margin-bottom: 4rem; /* Changed margin to separate from list */
+            gap: 3rem;
+            margin-bottom: 4rem;
             margin-top: 4rem;
         }
 
@@ -69,7 +69,7 @@
         .video-card {
             display: flex;
             flex-direction: column;
-            gap: 0.45rem; /* More breathing room between video and title */
+            gap: 0.45rem;
         }
 
         .video-wrapper,
@@ -84,7 +84,6 @@
             transform: translateZ(0);
         }
 
-        /* Make the grid cards feel bigger (taller) while keeping featured cinematic */
         .video-wrapper {
             aspect-ratio: 16 / 9;
         }
@@ -113,7 +112,6 @@
             text-align: center;
         }
 
-        /* Override global article h3 margins from style.css */
         .article-content h3.song-title {
             margin: 0;
             font-family: var(--font-heading);
@@ -124,7 +122,6 @@
             text-align: center;
         }
 
-        /* Styles for the featured cinematic video (keep layout same as others) */
         .featured-video-section {
             margin: 4rem 0 2rem;
         }
@@ -136,11 +133,11 @@
             }
 
             .video-wrapper {
-                padding-bottom: 56.25%; /* 16:9 fallback */
+                padding-bottom: 56.25%;
             }
 
             .featured-video-wrapper {
-                padding-bottom: 42.857%; /* 21:9 fallback */
+                padding-bottom: 42.857%;
             }
         }
         
@@ -158,9 +155,6 @@
             text-align: center;
             font-family: var(--font-heading);
             font-size: 1.1rem;
-            /* margin-top: 1rem; */
-             /* User said keep title below, same style maybe but centered? */
-             /* The user wants "cinematics embed". */
         }
 
     </style>
@@ -214,7 +208,6 @@
                 I never really thought about what my absolute favorite song is, because the more I try to answer that, the harder it becomes. Some songs are tied to memory; some are tied to mood; some you only understand years later. Music ends up becoming a quiet archive of who I was, who I am, and who Im trying to become. So rather than forcing a hierarchy, this page is just a slowly growing map of the tracks that stayed with me for reasons I dont always know how to explain.
             </p>
 
-            <!-- Featured Video: WE DON'T TALK ANYMORE (Cinematic style) -->
             <div class="featured-video-section">
                 <div class="video-card">
                     <div class="featured-video-wrapper">
@@ -225,7 +218,6 @@
             </div>
 
             <div class="video-grid">
-                <!-- Video 2: Shawn Mendes -->
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/dT2owtxkU8k" title="There's Nothing Holdin' Me Back" allowfullscreen></iframe>
@@ -233,7 +225,6 @@
                     <h3 class="song-title">There's Nothing Holdin' Me Back - Shawn Mendes</h3>
                 </div>
 
-                <!-- Video 3: Alps (Cover) -->
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/tKkW0UrixIk" title="Alps" allowfullscreen></iframe>
@@ -241,7 +232,6 @@
                     <h3 class="song-title">Alps - Marianne Beaulieu (Cover)</h3>
                 </div>
 
-                <!-- Video 4: One Republic -->
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/RSoJXOsfgTo" title="Wanted" allowfullscreen></iframe>
@@ -249,7 +239,6 @@
                     <h3 class="song-title">Wanted - OneRepublic</h3>
                 </div>
 
-                <!-- Video 5: Solas -->
                 <div class="video-card">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/ZT0aOrjIcVE" title="Solas" allowfullscreen></iframe>
